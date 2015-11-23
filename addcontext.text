@@ -1,0 +1,35 @@
+-- Players
+INSERT INTO Player ('Admin','pass',admin_fake@gmail.com');
+INSERT INTO Player ('Bertrand', 'pass', 'bertrandbrompton@gmail.com');
+INSERT INTO Player ('Paul', 'pass', 'fake1@fake.com');
+INSERT INTO Player ('Carl', 'pass', 'fake2@fake.com');
+INSERT INTO Player ('Matt', 'pass', 'fake3@fake.com');
+INSERT INTO Player ('Jake', 'pass', 'fake4@fake.com');
+
+-- Weapons
+
+INSERT INTO Weapon ('Unarmed', 1,4,0,'Bludgeoning');
+INSERT INTO Weapon ('Dagger',1,4,0,'Slashing');
+INSERT INTO Weapon ('Shortsword',1,6,0,'Piercing');
+INSERT INTO Weapon ('Longsword',1,8,0,'Piercing');
+INSERT INTO Weapon ('Greatsword',2,6,0,'Piercing');
+INSERT INTO Weapon ('Handaxe',1,6,0,'Slashing');
+INSERT INTO Weapon ('Battleaxe',1,8,0,'Slashing');
+INSERT INTO Weapon ('Greataxe',1,12,0,'Slashing');
+INSERT INTO Weapon ('Club',1,6,0,'Bludgeoning');
+INSERT INTO Weapon ('Mace',1,8,0,'Bludgeoning');
+INSERT INTO Weapon ('Maul',1,12,0,'Bludgeoning');
+
+-- Characters
+
+INSERT INTO Character ('Mr Johnson','Male','Nondescript merchant uniform',1);
+INSERT INTO Character ('Joseph Storm','Male','Military uniform',2);
+INSERT INTO Character ('Ordrelan','Male','Full plate mail',2);
+INSERT INTO Character ('Afamrail','Female','Mithril Sorceress Dress',2);
+INSERT INTO Character ('Phaendar','Female','Mithril Chainmail',3);
+
+-- Character Weapons
+
+
+
+
