@@ -16,24 +16,24 @@ I have tried to avoid using (too) platform specific SQL commands. I am not too b
 # HOW TO
 
 To make, on the commandline, run:
-
+```
 $ sqlite3.exe darkrpg < makedb.text
 $ sqlite3.exe darkrpg < addcontext.text
-
+```
 To open, on the commandline, run:
-
+```
 $ sqlite3.exe darkrpg
-
+```
 I suggest entering the following SQLite commands first:
-
+```
 sqlite>.header on
 sqlite>.mode column
 sqlite>.timer on
-
+```
 Then, a complex SQL Query joining multiple tables:
-
+```
 SELECT Players.PlayerName, Characters.CharacterName, Weapons.WeaponName FROM Characters INNER JOIN Players ON Characters.PlayerID = Players.PlayerID INNER JOIN CharacterWeapons ON CharacterWeapons.CharacterID = Characters.CharacterID INNER JOIN Weapons ON CharacterWeapons.WeaponID = Weapons.WeaponID;
-
+```
 # Contact
 Bertrand Brompton
 bertrandbrompton@gmail.com
