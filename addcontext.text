@@ -1,35 +1,45 @@
 -- Players
-INSERT INTO Player ('Admin','pass',admin_fake@gmail.com');
-INSERT INTO Player ('Bertrand', 'pass', 'bertrandbrompton@gmail.com');
-INSERT INTO Player ('Paul', 'pass', 'fake1@fake.com');
-INSERT INTO Player ('Carl', 'pass', 'fake2@fake.com');
-INSERT INTO Player ('Matt', 'pass', 'fake3@fake.com');
-INSERT INTO Player ('Jake', 'pass', 'fake4@fake.com');
+
+INSERT INTO Players (PlayerName, PlayerPassword, PlayerEmail) VALUES ('Admin','pass','admin_fake@gmail.com');
+INSERT INTO Players (PlayerName, PlayerPassword, PlayerEmail) VALUES ('Bertrand', 'pass', 'bertrandbrompton@gmail.com');
+INSERT INTO Players (PlayerName, PlayerPassword, PlayerEmail) VALUES ('Paul', 'pass', 'fake1@fake.com');
+INSERT INTO Players (PlayerName, PlayerPassword, PlayerEmail) VALUES ('Carl', 'pass', 'fake2@fake.com');
+INSERT INTO Players (PlayerName, PlayerPassword, PlayerEmail) VALUES ('Matt', 'pass', 'fake3@fake.com');
+INSERT INTO Players (PlayerName, PlayerPassword, PlayerEmail) VALUES ('Jake', 'pass', 'fake4@fake.com');
 
 -- Weapons
 
-INSERT INTO Weapon ('Unarmed', 1,4,0,'Bludgeoning');
-INSERT INTO Weapon ('Dagger',1,4,0,'Slashing');
-INSERT INTO Weapon ('Shortsword',1,6,0,'Piercing');
-INSERT INTO Weapon ('Longsword',1,8,0,'Piercing');
-INSERT INTO Weapon ('Greatsword',2,6,0,'Piercing');
-INSERT INTO Weapon ('Handaxe',1,6,0,'Slashing');
-INSERT INTO Weapon ('Battleaxe',1,8,0,'Slashing');
-INSERT INTO Weapon ('Greataxe',1,12,0,'Slashing');
-INSERT INTO Weapon ('Club',1,6,0,'Bludgeoning');
-INSERT INTO Weapon ('Mace',1,8,0,'Bludgeoning');
-INSERT INTO Weapon ('Maul',1,12,0,'Bludgeoning');
+INSERT INTO Weapons (WeaponName, WeaponDice, WeaponDiceType, WeaponDiceMod, DamageType) VALUES ('Unarmed', 1,4,0,'Bludgeoning');
+INSERT INTO Weapons (WeaponName, WeaponDice, WeaponDiceType, WeaponDiceMod, DamageType) VALUES ('Dagger',1,4,0,'Slashing');
+INSERT INTO Weapons (WeaponName, WeaponDice, WeaponDiceType, WeaponDiceMod, DamageType) VALUES ('Shortsword',1,6,0,'Piercing');
+INSERT INTO Weapons (WeaponName, WeaponDice, WeaponDiceType, WeaponDiceMod, DamageType) VALUES ('Longsword',1,8,0,'Piercing');
+INSERT INTO Weapons (WeaponName, WeaponDice, WeaponDiceType, WeaponDiceMod, DamageType) VALUES ('Greatsword',2,6,0,'Piercing');
+INSERT INTO Weapons (WeaponName, WeaponDice, WeaponDiceType, WeaponDiceMod, DamageType) VALUES ('Handaxe',1,6,0,'Slashing');
+INSERT INTO Weapons (WeaponName, WeaponDice, WeaponDiceType, WeaponDiceMod, DamageType) VALUES ('Battleaxe',1,8,0,'Slashing');
+INSERT INTO Weapons (WeaponName, WeaponDice, WeaponDiceType, WeaponDiceMod, DamageType) VALUES ('Greataxe',1,12,0,'Slashing');
+INSERT INTO Weapons (WeaponName, WeaponDice, WeaponDiceType, WeaponDiceMod, DamageType) VALUES ('Club',1,6,0,'Bludgeoning');
+INSERT INTO Weapons (WeaponName, WeaponDice, WeaponDiceType, WeaponDiceMod, DamageType) VALUES ('Mace',1,8,0,'Bludgeoning');
+INSERT INTO Weapons (WeaponName, WeaponDice, WeaponDiceType, WeaponDiceMod, DamageType) VALUES ('Maul',1,12,0,'Bludgeoning');
 
 -- Characters
 
-INSERT INTO Character ('Mr Johnson','Male','Nondescript merchant uniform',1);
-INSERT INTO Character ('Joseph Storm','Male','Military uniform',2);
-INSERT INTO Character ('Ordrelan','Male','Full plate mail',2);
-INSERT INTO Character ('Afamrail','Female','Mithril Sorceress Dress',2);
-INSERT INTO Character ('Phaendar','Female','Mithril Chainmail',3);
+INSERT INTO Characters (CharacterName,CharacterGender,CharacterDescription,PlayerID) VALUES ('Mr Johnson','Male','Nondescript merchant uniform',1);
+INSERT INTO Characters (CharacterName,CharacterGender,CharacterDescription,PlayerID) VALUES ('Joseph Storm','Male','Military uniform',2);
+INSERT INTO Characters (CharacterName,CharacterGender,CharacterDescription,PlayerID) VALUES ('Ordrelan','Male','Full plate mail',2);
+INSERT INTO Characters (CharacterName,CharacterGender,CharacterDescription,PlayerID) VALUES ('Afamrail','Female','Mithril Sorceress Dress',2);
+INSERT INTO Characters (CharacterName,CharacterGender,CharacterDescription,PlayerID) VALUES ('Phaendar','Female','Mithril Chainmail',3);
 
 -- Character Weapons
+INSERT INTO CharacterWeapons VALUES (1,1);
+INSERT INTO CharacterWeapons VALUES (2,1);
+INSERT INTO CharacterWeapons VALUES (3,1);
+INSERT INTO CharacterWeapons VALUES (4,1);
+INSERT INTO CharacterWeapons VALUES (5,1);
 
+INSERT INTO CharacterWeapons VALUES (1,2);
+INSERT INTO CharacterWeapons VALUES (2,2);
+INSERT INTO CharacterWeapons VALUES (3,2);
 
-
-
+INSERT INTO CharacterWeapons VALUES (3,4);
+INSERT INTO CharacterWeapons VALUES (3,11);
+INSERT INTO CharacterWeapons VALUES (4,9);

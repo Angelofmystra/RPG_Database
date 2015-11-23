@@ -22,7 +22,7 @@ PlayerName varchar(50) NOT NULL UNIQUE,
 -- password is encrypted by the application
 PlayerPassword varchar(50) NOT NULL,
 PlayerEmail varchar(50) NOT NULL UNIQUE,
-PlayerID int NOT NULL PRIMARY KEY
+PlayerID INTEGER PRIMARY KEY AUTOINCREMENT 
 );
 
 CREATE TABLE Weapons
@@ -30,17 +30,17 @@ CREATE TABLE Weapons
 -- Made the weapon name unique because it would hurt users if they couldn't
 -- memorise weapon stats by name, in the long term
 WeaponName varchar(50) NOT NULL UNIQUE,
-WeaponDice int NOT NULL,
-WeaponDiceType int NOT NULL,
-WeaponDiceMod int NOT NULL,
+WeaponDice INTEGER NOT NULL,
+WeaponDiceType INTEGER NOT NULL,
+WeaponDiceMod INTEGER NOT NULL,
 DamageType varchar(50) NOT NULL,
-WeaponID int NOT NULL PRIMARY KEY
+WeaponID INTEGER PRIMARY KEY AUTOINCREMENT
 );
 
 CREATE TABLE Characters
 (
-PlayerID int NOT NULL,
-CharacterID int PRIMARY KEY,
+PlayerID INTEGER NOT NULL,
+CharacterID INTEGER PRIMARY KEY,
 CharacterName varchar(50) NOT NULL UNIQUE,
 CharacterGender varchar(50) NOT NULL,
 CharacterDescription varchar(100) NOT NULL,
@@ -52,8 +52,8 @@ FOREIGN KEY (PlayerID) REFERENCES Players(PlayerID)
 -- weapons
 CREATE TABLE CharacterWeapons
 (
-CharacterID varchar(50) REFERENCES Characters (CharacterID),
-WeaponID varchar(50) REFERENCES Weapons (WeaponID),
+CharacterID INTEGER REFERENCES Characters (CharacterID),
+WeaponID INTEGER REFERENCES Weapons (WeaponID),
 PRIMARY KEY (CharacterID, WeaponID)
 );
 
