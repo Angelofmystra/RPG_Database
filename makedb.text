@@ -18,16 +18,18 @@ CREATE DATABASE darkrpg;
 
 CREATE TABLE Player
 (
-PlayerName varchar(50) NOT NULL,
+PlayerName varchar(50) NOT NULL UNIQUE,
 -- password is encrypted by the application
 PlayerPassword varchar(50) NOT NULL,
-PlayerEmail varchar(50) NOT NULL,
+PlayerEmail varchar(50) NOT NULL UNIQUE,
 PlayerID int NOT NULL AUTO_INCREMENT PRIMARY KEY
 )
 
 CREATE TABLE Weapon
 (
-WeaponName varchar(50) NOT NULL,
+-- Made the weapon name unique because it would hurt users if they couldn't
+memorise weapon stats by name, in the long term
+WeaponName varchar(50) NOT NULL UNIQUE,
 WeaponDice int NOT NULL,
 WeaponDiceType int NOT NULL,
 WeaponDiceMod int NOT NULL,
