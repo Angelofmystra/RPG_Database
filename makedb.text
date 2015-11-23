@@ -1,0 +1,60 @@
+/*
+
+This file creates the database structure. It does not add data. If modified, keep to the
+naming scheme.
+
+The Entities are: Player, Weapon, Character.
+
+Each player has multiple characters.
+  As such, each character has a foreign key playerid.
+Each character can have multiple weapons.
+Each weapon can have multiple characters.
+  As such there a junction table named CharacterWeapons.
+
+As this is meant to show basic SQL, I avoided adding too many properties to
+each table.
+*/
+CREATE DATABASE darkrpg;
+
+CREATE TABLE Player
+(
+PlayerName varchar(50) NOT NULL,
+-- password is encrypted by the application
+PlayerPassword varchar(50) NOT NULL,
+PlayerEmail varchar(50) NOT NULL,
+PlayerID int NOT NULL AUTO_INCREMENT PRIMARY KEY
+)
+
+CREATE TABLE Weapon
+(
+WeaponName varchar(50) NOT NULL,
+WeaponDice int NOT NULL,
+WeaponDiceType int NOT NULL,
+WeaponDiceMod int NOT NULL,
+DamageType varchar(50) NOT NULL,
+WeaponID int NOT NULL AUTO_INCREMENT PRIMARY KEY
+)
+
+CREATE TABLE Character
+(
+CharacterName varchar(50) NOT NULL UNIQUE,
+CharacterGender varchar(50) NOT NULL,
+CharacterDescription varchar(100) NOT NULL,
+-- Handles a 1 to many relationship
+PlayerID int FOREIGN KEY REFERENCES Player(PlayerID),
+CharacterID int NOT NULL AUTO_INCREMENT PRIMARY KEY
+)
+
+-- Junction table handling a many to many relationship between characters and
+weapons
+CREATE TABLE CharacterWeapons
+(
+CharacterID varchar(50) REFERENCES Character (CharacterID),
+WeaponID varchar(50) REFERENCES Weapon (WeaponID),
+PRIMARY KEY (CharacterID, WeaponID)
+)
+
+-- INDEXES
+-- The Character Name is searched a lot. As such, it gets an index.
+CREATE UNIQUE INDEX CharacterIndex ON Character (CharacterName);
+
