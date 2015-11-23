@@ -14,49 +14,50 @@ Each weapon can have multiple characters.
 As this is meant to show basic SQL, I avoided adding too many properties to
 each table.
 */
-CREATE DATABASE darkrpg;
+-- CREATE DATABASE darkrpg;
 
-CREATE TABLE Player
+CREATE TABLE Players
 (
 PlayerName varchar(50) NOT NULL UNIQUE,
 -- password is encrypted by the application
 PlayerPassword varchar(50) NOT NULL,
 PlayerEmail varchar(50) NOT NULL UNIQUE,
-PlayerID int NOT NULL AUTO_INCREMENT PRIMARY KEY
-)
+PlayerID int NOT NULL PRIMARY KEY
+);
 
-CREATE TABLE Weapon
+CREATE TABLE Weapons
 (
 -- Made the weapon name unique because it would hurt users if they couldn't
-memorise weapon stats by name, in the long term
+-- memorise weapon stats by name, in the long term
 WeaponName varchar(50) NOT NULL UNIQUE,
 WeaponDice int NOT NULL,
 WeaponDiceType int NOT NULL,
 WeaponDiceMod int NOT NULL,
 DamageType varchar(50) NOT NULL,
-WeaponID int NOT NULL AUTO_INCREMENT PRIMARY KEY
-)
+WeaponID int NOT NULL PRIMARY KEY
+);
 
-CREATE TABLE Character
+CREATE TABLE Characters
 (
+PlayerID int NOT NULL,
+CharacterID int PRIMARY KEY,
 CharacterName varchar(50) NOT NULL UNIQUE,
 CharacterGender varchar(50) NOT NULL,
 CharacterDescription varchar(100) NOT NULL,
 -- Handles a 1 to many relationship
-PlayerID int FOREIGN KEY REFERENCES Player(PlayerID),
-CharacterID int NOT NULL AUTO_INCREMENT PRIMARY KEY
-)
+FOREIGN KEY (PlayerID) REFERENCES Players(PlayerID)
+);
 
 -- Junction table handling a many to many relationship between characters and
-weapons
+-- weapons
 CREATE TABLE CharacterWeapons
 (
-CharacterID varchar(50) REFERENCES Character (CharacterID),
-WeaponID varchar(50) REFERENCES Weapon (WeaponID),
+CharacterID varchar(50) REFERENCES Characters (CharacterID),
+WeaponID varchar(50) REFERENCES Weapons (WeaponID),
 PRIMARY KEY (CharacterID, WeaponID)
-)
+);
 
 -- INDEXES
 -- The Character Name is searched a lot. As such, it gets an index.
-CREATE UNIQUE INDEX CharacterIndex ON Character (CharacterName);
+CREATE UNIQUE INDEX CharacterIndex ON Characters (CharacterName);
 
